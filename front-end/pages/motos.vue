@@ -20,40 +20,63 @@
       </b-form-group>
 
       <b-form-group @submit.stop.prevent>
-        <b-form-input class="form-control" type="number" placeholder="Identificación" id="id" />
+        <b-form-input class="form-control"  placeholder="Placa" id="plate" />
       </b-form-group>
 
       <b-form-group @submit.stop.prevent>
-        <b-form-input class="form-control" placeholder="Nombre" id="name" />
+        <b-form-input class="form-control" placeholder="Estado" id="state" />
       </b-form-group>
 
       <b-form-group @submit.stop.prevent>
-        <b-form-input class="form-control" placeholder="Apellidos" id="lastName" />
+        <b-form-input class="form-control" placeholder="Clase" id="class" />
       </b-form-group>
 
       <b-form-group @submit.stop.prevent>
-        <b-form-input class="form-control" type="number" placeholder="Celular" id="phone" />
+        <b-form-input class="form-control"  placeholder="Marca" id="brand" />
       </b-form-group>
 
-      <b-form-group @submit.stop.prevent>
-        <b-form-input class="form-control" type="email" placeholder="Correo" id="email" />
+       <b-form-group @submit.stop.prevent>
+        <b-form-input class="form-control"  placeholder="Modelo" id="model" />
       </b-form-group>
 
-      <b-form-group label="Rol">
-        <b-form-select></b-form-select>
+       <b-form-group @submit.stop.prevent>
+        <b-form-input class="form-control"  placeholder="Color" id="color" />
       </b-form-group>
 
-      <b-form-group @submit.stop.prevent>
-        <b-form-input class="form-control" type="password" placeholder="Contraseña" id="password" />
+       <b-form-group @submit.stop.prevent>
+        <b-form-input class="form-control"  placeholder="Cilindraje" id="displacement" />
       </b-form-group>
 
-      <b-button type="submit" block variant="dark" v-if="!inEdition">Crear usuario</b-button>
-      <b-button block variant="dark" v-else>Actualizar usuario</b-button>
+       <b-form-group @submit.stop.prevent>
+        <b-form-input class="form-control" type="number"  placeholder="Id Propietario" id="id_owner" />
+      </b-form-group>
+
+       <b-form-group @submit.stop.prevent>
+        <b-form-input class="form-control" type="number"  placeholder="Nro Soat" id="soat" />
+      </b-form-group>
+
+       <b-form-group @submit.stop.prevent label="Fecha de Vencimiento Soat">
+        <b-form-datepicker id="example-datepicker" v-model="value" class="mb-2"></b-form-datepicker>
+      </b-form-group>
+
+       <b-form-group @submit.stop.prevent>
+        <b-form-input class="form-control"  placeholder="Nro Tecnomecanica" id="tecno" />
+      </b-form-group>
+
+       <b-form-group @submit.stop.prevent label="Fecha de Vencimiento Tecnomecánica" >
+        <b-form-datepicker id="example-datepicker" v-model="value" class="mb-2"></b-form-datepicker>
+      </b-form-group>
+
+     
+
+      
+      <b-button type="submit" block variant="dark" v-if="!inEdition">Crear moto</b-button>
+      <b-button block variant="dark" v-else>Actualizar moto</b-button>
       <br />
 
     </b-form>
     
-    <b-button type="submit" block variant="dark" @click="showTable = !showTable">Lista de Usuarios</b-button>
+    <b-button type="submit" block variant="dark" @click="showTable = !showTable">Lista de Motos</b-button>
   </div>
 </template>
 
