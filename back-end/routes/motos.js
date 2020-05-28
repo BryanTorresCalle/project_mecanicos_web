@@ -3,7 +3,6 @@ const router = express.Router();
 const {
   showMotos,
   showMoto,
-  deleteMoto,
   createMoto,
   updateMoto,
   validateMoto,
@@ -59,23 +58,7 @@ router.post("/motos", (req, res) => {
   }
 });
 
-router.delete("/motos/:plate", (req, res) => {
-  try {
-    let infoMoto = req.params.placa;
-    deleteMoto(infoMoto)
-      .then((answerDB) => {
-        res.send({
-          ok: true,
-          mensaje: "Moto eliminada",
-        });
-      })
-      .catch((error) => {
-        res.send(error);
-      });
-  } catch (error) {
-    res.send(error);
-  }
-});
+
 
 router.put("/motos/:plate", (req, res) => {
   try {

@@ -20,17 +20,17 @@ router.use((req, res, next) => {
 router.post("/login", (req, res) => {
   try {
     let body = req.body;
-    _controller.validar_datos(body);
+    _controller.validateInfo(body);
     _controller
-      .consultar_usuario(body)
+      .queryUser(body)
       .then((answerDB) => {
-        let usuario = answerDB.rowCount > 0 ? answerDB.rows[0] : undefined;
-        if (usuario) {
-          let token = _controller.generar_token(usuario);
+        let user = answerDB.rowCount > 0 ? answerDB.rows[0] : undefined;
+        if (user) {
+          let token = _controller.genToken(user);
           res.status(200).send({
             ok: true,
             info: token,
-            rol: usuario.rol,
+            rol: user.rol,
             message: "Persona autenticada",
           });
         } else {
@@ -49,10 +49,10 @@ router.post("/login", (req, res) => {
   }
 });
 
-router.get("/verificar", (req, res) => {
+router.get("/verify", (req, res) => {
   try {
     let token = req.headers.token;
-    let verificacion = _controller.validar_token(token);
+    let verificacion = _controller.validateToken(token);
     res.status(200).send({
       ok: true,
       info: token,
@@ -66,22 +66,22 @@ router.get("/verificar", (req, res) => {
     });
   }
 });
-router.post("/verificar", (req, res) => {
+router.post("/verify", (req, res) => {
   try {
     let body = req.body;
-    _controller.validar_datos(body);
+    _controller.validateInfo(body);
     _controller
-      .consultar_usuario(body)
-      .then((respuestaDB) => {
-        let persona =
-          respuestaDB.rowCount > 0 ? respuestaDB.rows[0] : undefined;
-        if (persona) {
-          let token = _controlador.generarToken(persona);
+      .queryUser(body)
+      .then((answerDB) => {
+        let user =
+          answerDB.rowCount > 0 ? answerDB.rows[0] : undefined;
+        if (user) {
+          let token = _controlador.genToken(user);
           res.status(200).send({
             ok: true,
             info: token,
             mensaje: "Persona autenticada.",
-            rol: persona.rol,
+            rol: user.rol,
           });
         } else {
           res.status(400).send({

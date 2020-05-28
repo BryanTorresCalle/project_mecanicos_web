@@ -5,8 +5,8 @@ class ServicioPG {
     this.pool = new Pool({
       user: "postgres",
       host: "localhost",
-      database: "Taller_Mecanicos",
-      password: "",
+      database: "TallerMecanicos",
+      password: "0123",
       port: 5432,
     });
   }

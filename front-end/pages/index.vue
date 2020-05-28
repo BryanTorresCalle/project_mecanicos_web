@@ -8,8 +8,8 @@
 
 
 export default {
-  components: {
-  
+  beforeMount(){
+     this.$router.push("/login");
   }
 }
 </script>

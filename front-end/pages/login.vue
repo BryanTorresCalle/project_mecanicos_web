@@ -9,35 +9,35 @@
             <b-form-input
               class="form-control"
               type="number"
+               v-model="user.id"
               placeholder="Ingrese su documento de identidad"
               id="id"
             />
-            <!-- <b-form-invalid-feedback :state="validar_id"
+             <b-form-invalid-feedback :state="validateId"
               >Campo obligatorio</b-form-invalid-feedback
-            >-->
+            >
           </b-form-group>
 
           <b-form-group @submit.stop.prevent label="Contraseña" label-for="password">
             <b-form-input
               class="form-control"
               type="password"
+              v-model="user.password"
               placeholder="Ingrese su contraseña"
               id="password"
             />
-            <!--<b-form-invalid-feedback :state="validar_clave"
+            <b-form-invalid-feedback :state="validatePassword"
               >Campo obligatorio</b-form-invalid-feedback
-            >-->
+            >
           </b-form-group>
 
-          <b-button type="submit" block variant="dark">Ingresar</b-button>
+          <b-button type="submit" block variant="dark" @click="login()">Ingresar</b-button>
         </b-form>
       </b-col>
     </b-container>
   </div>
 </template>
 
-<script>
-export default {};
-</script>
+<script src= "../assets/login.js"> </script>
 
 <style src="../css/login.css" />
